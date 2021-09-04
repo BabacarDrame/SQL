@@ -1,0 +1,38 @@
+1) mysql> SELECT * FROM mock_data WHERE last_name= "palmer";
+2) mysql> SELECT * FROM mock_data WHERE gender= "female";
+3) mysql> SELECT * FROM mock_data WHERE country_code LIKE "N%";
+4) mysql> SELECT * FROM mock_data WHERE (email LIKE '%google%');
+5) mysql> SELECT * FROM mock_data order by country_code ASC ;
+6) mysql> Insert into mock_data VALUES(1001,'ndeye','mbaye','ndeye@gmail','female','192.168.255.255','03/02/1997','SN','http://slideshare.net/felis.jpg');
+7) mysql> delete from mock_data where id=1001;
+8) mysql> select count(gender) from mock_data where gender='male';
+   mysql> select count(gender) from mock_data where gender='female';
+10) mysql> create table membre_acs(
+    -> id int primary key not null,
+    -> prenom varchar(100),
+    -> nom varchar(100),
+    -> email varchar(100));
+
+mysql> insert into membre_acs (1,'babacar','dramé','babacar@gmail.com');
+ERROR 1064 (42000): Erreur de syntaxe près de '1,'babacar','dramé','babacar@gmail.com')' à la ligne 1
+mysql> insert into membre_acs values (1,'babacar','dramé','babacar@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from membre_acs;
++----+---------+-------+-------------------+
+| id | prenom  | nom   | email             |
++----+---------+-------+-------------------+
+|  1 | babacar | dramé | babacar@gmail.com |
++----+---------+-------+-------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into membre_acs values (2,'ndeye','mbaye','gnanga@gmail.com');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departement_acs values (1,'développement web');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into departement_acs values (1,'développement mobile');
+ERROR 1062 (23000): Duplicata du champ '1' pour la clef 'departement_acs.PRIMARY'
+mysql> insert into departement_acs values (2,'développement mobile');
+Query OK, 1 row affected (0.00 sec)
